@@ -1,0 +1,96 @@
+/* main vars */
+.app-main-color{
+    background: AppMainColorValue !important;
+}
+.app-secondary-color{ 
+    background: AppSecondaryColorValue !important;
+}
+.app-text-color{ 
+    color: AppTextColorValue !important;
+}
+.app-main-color-as-border{
+    border-color: AppMainColorValue !important;
+}
+/* navigation vars */
+.nav-bg-color{
+    background: NavBgColorValue !important;
+}
+.nav-text-color{ 
+    color: NavTextColorValue !important;
+}
+.nav-text-color-highlight{ 
+    color: NavTextColorHighlightValue !important;
+}
+
+/** items that really need to be overriden **/
+.round-placeholder{
+    background: AppTextColorValue !important; /*use app-text-color for background*/
+    color: AppMainColorValue !important; /*use app-main-color for text color*/
+}
+
+app-context-hotel-dropdown .k-combobox .k-dropdown-wrap > .k-i-close{
+    color: AppMainColorValue !important; /*use app-main-color for text color*/
+    border: 1px solid AppMainColorValue !important; /*use app-main-color for border color*/
+}
+
+.k-panelbar,
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-expanded), 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-active), 
+.k-panelbar .k-group > .k-item > .k-link.k-state-selected,
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-expanded):hover, 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-expanded).k-state-hover, 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-active):hover, 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-active).k-state-hover,
+.k-panelbar > .k-item > .k-link:hover, 
+.k-panelbar > .k-item > .k-link.k-state-hover,
+.k-panelbar > .k-item.k-state-expanded > .k-link:hover, 
+.k-panelbar > .k-item.k-state-expanded > .k-link.k-state-hover, 
+.k-panelbar > .k-item.k-state-active > .k-link:hover, 
+.k-panelbar > .k-item.k-state-active > .k-link.k-state-hover, 
+.k-panelbar .k-group > .k-item > .k-link:hover, 
+.k-panelbar .k-group > .k-item > .k-link.k-state-hover,
+.k-panelbar .k-group,
+.k-panelbar > .k-item.k-state-expanded > .k-link,
+.k-panelbar > .k-item.k-state-active > .k-link,
+.k-panelbar .k-group > .k-item > .k-link:hover.k-state-selected, 
+.k-panelbar .k-group > .k-item > .k-link.k-state-hover.k-state-selected,
+.k-panelbar .k-content{
+    color: AppTextColorValue !important; /*use app-text-color*/
+}
+.k-panelbar > .k-item > .k-link,
+.k-panelbar .k-group > .k-item > .k-link {
+    color: NavTextColorValue !important; /*use nav-text-color*/
+}
+.k-panelbar > .k-item > .k-link.k-state-selected,
+.k-panelbar .k-group > .k-item > .k-link.k-state-selected,
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-expanded), 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-active),
+.k-panelbar > .k-item > .k-link.k-state-selected:hover,
+.k-panelbar .k-group > .k-item > .k-link.k-state-selected:hover,
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-expanded):hover, 
+.k-panelbar > .k-item > .k-link.k-state-selected:not(.k-state-active):hover,
+.k-panelbar > .k-item.k-state-expanded > .k-link,
+.k-panelbar > .k-item.k-state-expanded > .k-link:hover{
+    color: NavTextColorHighlightValue !important; /*use nav-text-color-highlight*/
+}
+
+.k-dialog{
+    border-top: 4px solid AppSecondaryColorValue !important; /*use app-secondary-color*/
+}
+
+.k-tabstrip-top > .k-tabstrip-items .k-item.k-state-active{
+    border-top: 4px solid AppSecondaryColorValue !important; /*use app-secondary-color*/
+}
+
+.header .header-context app-context-chain-dropdown kendo-combobox span input{
+    color: AppTextColorValue !important; /*use app-text-color*/
+}
+.header .header-context app-context-chain-dropdown kendo-combobox span input::-webkit-input-placeholder, /* Chrome */
+.header .header-context app-context-chain-dropdown kendo-combobox span input:-ms-input-placeholder, /* IE 10+ */
+.header .header-context app-context-chain-dropdown kendo-combobox span input::-moz-placeholder, /* Firefox 19+ */
+.header .header-context app-context-chain-dropdown kendo-combobox span input:-moz-placeholder{ /* Firefox 4 - 18 */
+    color: AppTextColorValue !important; /*use app-text-color*/
+}
+.header .header-context app-context-chain-dropdown kendo-combobox span .k-select, .header .header-context app-context-chain-dropdown kendo-combobox span:hover .k-select{
+    color: AppTextColorValue !important; /*use app-text-color*/
+}
