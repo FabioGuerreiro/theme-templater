@@ -1,28 +1,78 @@
-# ThemeTemplater
+# theme-templater
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+Angular 4 library to allow the use of css templates including custom names as variables and replace them with actual values
 
-## Development server
+[NPM](https://www.npmjs.com/package/theme-templater)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Purpose
 
-## Code scaffolding
+I found the need change the colors of an application on runtime depending on the authenticated user. The values for these colors are stored in datatbase and are returned via RestService.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The aim of this package is to use a local css file with dummy names for property values as a template and, using a list that relates those names to actual values, create a style tag to override existing styles or simply to create styles on the run.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```shell
+npm install --save theme-templater
+```
+Once installed you need to import the main module:
+```js
+import { TtStyleModule } from 'theme-templater';
 
-## Running unit tests
+@NgModule({
+  declarations: [AppComponent, ...],
+  imports: [TtStyleModule, ...],  
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage Example
 
-## Running end-to-end tests
+Having `styles-template.css` inside the assets folder:
+```css
+.header{
+    background: AppMainColorValue !important;
+    color: AppTextColorValue !important;
+}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+`app.component.ts`:
+```js
+import { TtStyleVar } from './modules/tt-style/tt-style-var';
+import { Component } from '@angular/core';
 
-## Further help
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  template: string;
+  vars: TtStyleVar[];
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor() {
+    this.template = 'assets/styles-template.css';
+    this.vars = [
+      {
+        VarName: 'AppMainColorValue',
+        VarValue: '#222222'
+      },
+      {
+        VarName: 'AppTextColorValue',
+        VarValue: '#ffffff'
+      }
+    ];
+  }
+}
+```
+
+`app.component.html`:
+```html
+<tt-style [templateFileSrc]="template" [templateVars]="vars"></tt-style>
+
+<div class="header">
+  This is but a test...
+</div>
+```

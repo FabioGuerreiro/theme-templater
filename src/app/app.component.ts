@@ -15,27 +15,11 @@ export class AppComponent {
     this.vars = [
       {
         VarName: 'AppMainColorValue',
-        VarValue: 'red'
-      },
-      {
-        VarName: 'AppSecondaryColorValue',
-        VarValue: 'blue'
+        VarValue: '#222222'
       },
       {
         VarName: 'AppTextColorValue',
         VarValue: '#ffffff'
-      },
-      {
-        VarName: 'NavBgColorValue',
-        VarValue: '#990000'
-      },
-      {
-        VarName: 'NavTextColorValue',
-        VarValue: '#ffffff'
-      },
-      {
-        VarName: 'NavTextColorHighlightValue',
-        VarValue: 'yellow'
       }
     ];
   }
