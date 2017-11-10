@@ -40,7 +40,7 @@ Having `styles-template.css` inside the assets folder:
 
 `app.component.ts`:
 ```js
-import { TtStyleVar } from './modules/tt-style/tt-style-var';
+import { TtStyleVar } from 'theme-templater/src/app/modules/tt-style/tt-style-var';
 import { Component } from '@angular/core';
 
 @Component({
