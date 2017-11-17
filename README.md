@@ -76,3 +76,10 @@ export class AppComponent {
   This is but a test...
 </div>
 ```
+
+## TODO
+
+- check if final result is valid css
+- migrate functionality to service
+- allow the use of component, directive or service
+- opt between creating a <style> tag or a css file
