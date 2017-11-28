@@ -3,6 +3,7 @@
 Angular 4 library to allow the use of css templates including custom names as variables and replace them with actual values
 
 [NPM](https://www.npmjs.com/package/theme-templater)
+
 [GitHub](https://github.com/FabioGuerreiro/theme-templater)
 
 ## Purpose
@@ -81,6 +82,4 @@ export class AppComponent {
 ## TODO
 
 - check if final result is valid css
-- migrate functionality to service
-- allow the use of component, directive or service
 - opt between creating a <style> tag or a css file
