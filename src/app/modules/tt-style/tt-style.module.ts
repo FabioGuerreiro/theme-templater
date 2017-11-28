@@ -1,3 +1,4 @@
+import { TtStyleService } from './tt-style.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,8 +14,13 @@ import { TtStyleComponent } from './tt-style.component';
   declarations: [
     TtStyleComponent
   ],
+  providers: [
+    TtStyleService
+  ],
   exports: [
     TtStyleComponent
   ]
 })
-export class TtStyleModule {}
+export class TtStyleModule {
+  constructor(public ttStyleService: TtStyleService) { }
+}
