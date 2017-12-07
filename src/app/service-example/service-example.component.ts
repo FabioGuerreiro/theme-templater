@@ -1,8 +1,7 @@
 import { TtStyleService } from './../modules/tt-style/tt-style.service';
 import { RestMockService } from './../rest-mock.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Component, OnInit } from '@angular/core';
-import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-service-example',

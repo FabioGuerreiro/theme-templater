@@ -18,18 +18,21 @@ npm install --save theme-templater
 ```
 Once installed you need to import the main module:
 ```js
-import { TtStyleModule } from 'theme-templater';
+import { TtStyleModule, TtStyleService } from 'theme-templater';
 
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [TtStyleModule, ...],  
+  providers: [TtStyleService, ...],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-## Usage Example
+## Usage Examples
+
+### Using Component
 
 Having `styles-template.css` inside the assets folder:
 ```css
@@ -41,7 +44,7 @@ Having `styles-template.css` inside the assets folder:
 
 `app.component.ts`:
 ```js
-import { TtStyleVar } from 'theme-templater/src/app/modules/tt-style/tt-style-var';
+import { TtStyleVar } from 'theme-templater';
 import { Component } from '@angular/core';
 
 @Component({
@@ -78,9 +81,79 @@ export class AppComponent {
 </div>
 ```
 
+### Using Service
+
+Assuming the same `styles-template.css` from the previous example and RestService that returns a list of different styles to create.
+
+this being my styles list in a json file:
+```js
+[
+  {
+    "media": "only screen and (max-width:1024px)",
+    "bgColor": "#222222",
+    "textColor": "#ffffff"
+  },
+  {
+    "media": "only screen and (min-width:1025px)",
+    "bgColor": "#990000",
+    "textColor": "#ffffff"
+  }
+]
+```
+
+`app.component.ts`:
+```js
+import { TtStyleVar, TtStyleService } from 'theme-templater';
+import { RestService } from './rest.service';
+import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'app-service-example',
+  templateUrl: './service-example.component.html',
+  styleUrls: ['./service-example.component.css']
+})
+export class AppComponent implements OnInit, OnDestroy {
+  stylesSubscription: Subscription;
+
+  template: string;
+
+  constructor(
+    private restService: RestService,
+    private stylesService: TtStyleService
+  ) {}
+
+  ngOnInit() {
+    this.stylesService.removeAddedStyles();
+
+    this.template = 'assets/styles-template.css';
+
+    this.stylesSubscription = this.restService.getStyles().subscribe((styles) => {
+      for (const st of styles) {
+        const vars = [
+          {
+            VarName: 'AppMainColorValue',
+            VarValue: st.bgColor
+          },
+          {
+            VarName: 'AppTextColorValue',
+            VarValue: st.textColor
+          }
+        ];
+
+        this.stylesService.start(this.template, vars, st.media);
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.stylesSubscription.unsubscribe();
+  }
+}
+```
+
+
 ## TODO
 
 - check if final result is valid css
-- migrate functionality to service
-- allow the use of component, directive or service
 - opt between creating a <style> tag or a css file

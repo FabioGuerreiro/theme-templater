@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { TtStyleComponent } from './tt-style.component';
 
+export { TtStyleService } from './tt-style.service';
+
 @NgModule({
   imports: [
     CommonModule,
