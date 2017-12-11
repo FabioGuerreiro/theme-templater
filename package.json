@@ -1,6 +1,8 @@
 {
   "name": "theme-templater",
   "version": "0.0.5",
+  "homepage": "https://github.com/FabioGuerreiro/theme-templater",
+  "bugs": "https://github.com/FabioGuerreiro/theme-templater/issues",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

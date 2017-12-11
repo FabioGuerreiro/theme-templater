@@ -157,4 +157,4 @@ export class AppComponent implements OnInit, OnDestroy {
 ## TODO
 
 - check if final result is valid css
-- opt between creating a <style> tag or a css file
+- opt between creating a style tag or a css file
